@@ -12,8 +12,6 @@ public struct Ledge
     public Vector3 MidPoint => Vector3.Lerp(Start, End, .5f);
     
     public bool IsValid => Start != Vector3.zero && End != Vector3.zero;
-
-    public float GetDistanceToMidpoint(Vector3 fromPosition) => Vector3.Distance(fromPosition, MidPoint);
     
     public void DrawGizmos(Color color)
     {
@@ -28,6 +26,4 @@ public struct Ledge
         Gizmos.DrawCube(Vector3.zero, new Vector3( .1f, .1f, (End - Start).magnitude));
         Gizmos.matrix = Matrix4x4.identity;
     }
-
-    public Vector3 NormalizedDirection => (End - Start).normalized;
 }
